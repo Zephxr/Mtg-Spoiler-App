@@ -1,0 +1,1 @@
+# Mtg-Spoiler-App
