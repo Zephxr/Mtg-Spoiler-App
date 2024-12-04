@@ -47,6 +47,7 @@ async def process_sets(newSets):
 
         # Read the seen cards from the set file
         with open(set_file_path, "r") as f:
+            print(set_file_path)
             seenCards = [line.strip() for line in f.readlines()]
 
         # Scrape the cards from the website

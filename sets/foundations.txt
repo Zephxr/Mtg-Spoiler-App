@@ -24,7 +24,7 @@ Skyknight Squire
 Squad Rallier
 Sun-Blessed Healer
 Twinblade Blessing
-Valkyrie’s Call
+Valkyrieâ€™s Call
 Vanguard Seraph
 Arcane Epiphany
 Archmage of Runes
@@ -66,7 +66,7 @@ Midnight Snack
 Nine-Lives Familiar
 Revenge of the Rats
 Sanguine Syphoner
-Seeker’s Folly
+Seekerâ€™s Folly
 Soul-Shackled Zombie
 Stab
 Tinybones, Bauble Burglar
@@ -132,14 +132,14 @@ Ravenous Amulet
 Scrawling Crawler
 Soulstone Sanctuary
 Ajani, Caller of the Pride
-Ajani’s Pridemate
+Ajaniâ€™s Pridemate
 Angel of Finality
 Authority of the Consuls
 Banishing Light
 Cathar Commando
 Day of Judgment
 Giada, Font of Hope
-Healer’s Hawk
+Healerâ€™s Hawk
 Make Your Move
 Mischievous Pup
 Resolute Reinforcements
@@ -157,7 +157,7 @@ Imprisoned in the Moon
 Lightshell Duo
 Micromancer
 Mocking Sprite
-An Offer You Can’t Refuse
+An Offer You Canâ€™t Refuse
 Omniscience
 Run Away Together
 Self-Reflection
@@ -172,7 +172,7 @@ Diregraf Ghoul
 Eaten Alive
 Exsanguinate
 Fake Your Own Death
-Hero’s Downfall
+Heroâ€™s Downfall
 Liliana, Dreadhorde General
 Macabre Waltz
 Marauding Blight-Priest
@@ -187,7 +187,7 @@ Vampire Nighthawk
 Zombify
 Abrade
 Axgard Cavalry
-Brass’s Bounty
+Brassâ€™s Bounty
 Brazen Scourge
 Burst Lightning
 Drakuseth, Maw of Flames
@@ -199,7 +199,7 @@ Flamewake Phoenix
 Frenzied Goblin
 Goblin Surprise
 Heartfire Immolator
-Hidetsugu’s Second Rite
+Hidetsuguâ€™s Second Rite
 Involuntary Employment
 Krenko, Mob Boss
 Seismic Rupture
@@ -215,9 +215,9 @@ Broken Wings
 Bushwhack
 Doubling Season
 Dwynen, Gilt-Leaf Daen
-Dwynen’s Elite
+Dwynenâ€™s Elite
 Elvish Archdruid
-Garruk’s Uprising
+Garrukâ€™s Uprising
 Genesis Wave
 Ghalta, Primal Hunger
 Giant Growth
@@ -261,7 +261,7 @@ Blossoming Sands
 Dismal Backwater
 Evolving Wilds
 Jungle Hollow
-Rogue’s Passage
+Rogueâ€™s Passage
 Rugged Highlands
 Scoured Barrens
 Secluded Courtyard
