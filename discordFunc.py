@@ -2,9 +2,10 @@ import os
 import asyncio
 import requests
 from bs4 import BeautifulSoup
+from webhook import webhook
 
 async def sendDiscord(card_title, card_link, card_image, set_name):
-    webhook_url = r"https://discord.com/api/webhooks/1216810268982640660/ATUr-BvOdx3fUcjGNUCB5_LlHl8KXMYKF9dEgJrPq7lKMXzL_8bPdVQNMV2sbN-Yd3wh"
+    webhook_url = webhook
     data = {
         "content": f"New card found: {card_title} ({set_name})\n{card_link}",
         "embeds": [
