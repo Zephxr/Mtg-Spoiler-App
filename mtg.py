@@ -1,11 +1,16 @@
 import requests
 from bs4 import BeautifulSoup
 from discordFunc import process_sets
+import os
 newSets = []
 oldSets = []
 allSets = []
+
+# Get the directory of this file and do the file checks.  This works around using the script in a cronjob.
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
 # Load old sets from file
-with open("old_sets.txt", "r") as f:
+with open(os.path.join(script_dir, "old_sets.txt"), "r") as f:
     oldSets = [line.strip() for line in f.readlines()]
 
 # Scrape the website to find new sets
@@ -30,7 +35,7 @@ for a_tag in soup.find_all('a', href=True):
             newSets.append(set_id)
         allSets.append(set_id + "\n")
 
-with open("all_sets.txt","w") as f:
+with open(os.path.join(script_dir, "all_sets.txt"),"w") as f:
     f.writelines(allSets)
 
 import asyncio
