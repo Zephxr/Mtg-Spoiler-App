@@ -34,12 +34,15 @@ async def sendDiscord(card_title, card_link, card_image, set_name):
             break  # Exit the loop on any other error
 
 async def process_sets(newSets):
+    # Get the directory of this file and do the file checks.  This works around using the script in a cronjob.
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    
     # Process each new set
     for set in newSets:
         seenCards = []
 
         # Check if set has a file in the 'sets' directory, if not, create one
-        set_file_path = f"sets/{set}.txt"
+        set_file_path = os.path.join(script_dir, 'sets', f"{set_name}.txt")
 
         # If the set file doesn't exist, create it
         if not os.path.exists(set_file_path):
