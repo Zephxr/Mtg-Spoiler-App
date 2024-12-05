@@ -42,7 +42,7 @@ async def process_sets(newSets):
         seenCards = []
 
         # Check if set has a file in the 'sets' directory, if not, create one
-        set_file_path = os.path.join(script_dir, 'sets', f"{set_name}.txt")
+        set_file_path = os.path.join(script_dir, 'sets', f"{set}.txt")
 
         # If the set file doesn't exist, create it
         if not os.path.exists(set_file_path):
