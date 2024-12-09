@@ -20,3 +20,25 @@ webhook = r"<DISCORD WEBHOOK URL>"
 ```
 
 But replace the <...> with your channels webhook url.
+
+# Advanced Use (Linux or WSL2 for Windows)
+
+To have this run consistently, you can run this as a cronjob.
+
+To run this as a cronjob you will need to either have a Linux machine or WSL2 installed on your windows computer.
+If you don't for some reason have cron on your machine, do:
+```
+sudo apt install cron
+```
+
+After, do:
+```
+crontab -e
+```
+
+This will open your crontab and here you can install a cronjob.  Example cronjob would be something like this:
+```
+*/5 * * * * ~/Mtg-Spoiler-App/venv/bin/python3 ~/Mtg-Spoiler-App/mtg.py >> ~/Mtg-Spoiler-App/mtg.log 2>&1
+```
+
+This will run every 5 minutes and output all errors to the log file.
