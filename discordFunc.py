@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from webhook import webhook
 
 async def sendDiscord(card_title, card_link, card_image, set_name):
-    webhook_url = webhook
+    webhook_urls = webhook
     data = {
         "content": f"New card found: {card_title} ({set_name})\n{card_link}",
         "embeds": [
@@ -21,17 +21,18 @@ async def sendDiscord(card_title, card_link, card_image, set_name):
 
     # Retry logic in case of HTTP 429 (Too Many Requests)
     while True:
-        response = await asyncio.to_thread(requests.post, webhook_url, json=data)
-        
-        if response.status_code == 204:
-            print("Successfully sent the message to Discord!")
-            break  # Exit the loop if the request was successful
-        elif response.status_code == 429:
-            print("Rate limit exceeded. Retrying after 1 second...")
-            await asyncio.sleep(1)  # Wait for 1 second before retrying
-        else:
-            print(f"Failed to send the message to Discord: {response.status_code}")
-            break  # Exit the loop on any other error
+        for webhook_url in webhook_urls:
+            response = await asyncio.to_thread(requests.post, webhook_url, json=data)
+            
+            if response.status_code == 204:
+                print("Successfully sent the message to Discord!")
+                break  # Exit the loop if the request was successful
+            elif response.status_code == 429:
+                print("Rate limit exceeded. Retrying after 1 second...")
+                await asyncio.sleep(1)  # Wait for 1 second before retrying
+            else:
+                print(f"Failed to send the message to Discord: {response.status_code}")
+                break  # Exit the loop on any other error
 
 async def process_sets(newSets):
     # Get the directory of this file and do the file checks.  This works around using the script in a cronjob.
