@@ -5,7 +5,10 @@ from bs4 import BeautifulSoup
 from webhook import webhook
 
 async def sendDiscord(card_title, card_link, card_image, set_name):
-    webhook_urls = webhook
+    if isinstance(webhook, str):
+        webhookurls = [webhook]
+    else:
+        webhook_urls = webhook
     data = {
         "content": f"New card found: {card_title} ({set_name})\n{card_link}",
         "embeds": [
