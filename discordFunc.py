@@ -10,7 +10,7 @@ async def sendDiscord(card_title, card_link, card_image, set_name):
     else:
         webhook_urls = webhook
     data = {
-        "content": f"New card found: {card_title} ({set_name})\n{card_link}",
+        "content": f"Card: {card_title} ({set_name})\n{card_link}",
         "embeds": [
             {
                 "title": card_title,
