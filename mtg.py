@@ -36,10 +36,13 @@ for a_tag in soup.find_all('a', href=True):
         
         # Only add the set if it is not already in the "oldSets" list
         if set_id not in oldSets:
-            # Add the set to the list of new sets if it hasn't been processed before
-            newSets.append(set_id)
+            # Add the set to the list of sets if it hasn't been processed before
             allSets.add(set_id)  # Add the new set to the allSets collection to keep track
 
+for set in allSets:
+    if set not in oldSets:
+        newSets.append(set)
+        
 # Update the 'all_sets.txt' file with the latest set data
 # This ensures that we keep track of all the sets we've seen
 with open(os.path.join(script_dir, "all_sets.txt"), "w") as f:
