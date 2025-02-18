@@ -6,7 +6,7 @@ from webhook import webhook
 
 async def sendDiscord(card_title, card_link, card_image, set_name):
     if isinstance(webhook, str):
-        webhookurls = [webhook]
+        webhook_urls = [webhook]
     else:
         webhook_urls = webhook
     data = {
