@@ -4,10 +4,16 @@ from discordFunc import process_sets
 import os
 newSets = []
 oldSets = []
-allSets = []
+allSets = set()
 
 # Get the directory of this file and do the file checks.  This works around using the script in a cronjob.
 script_dir = os.path.dirname(os.path.abspath(__file__))
+
+with open(os.path.join(script_dir, "all_sets.txt"), "r") as f:
+    for line in f.readlines():
+        allSets.add(line)
+
+print(allSets)
 
 # Load old sets from file
 with open(os.path.join(script_dir, "old_sets.txt"), "r") as f:
@@ -33,7 +39,7 @@ for a_tag in soup.find_all('a', href=True):
         if set_id not in oldSets:
             print(f"New set found: {href}, {set_id}")
             newSets.append(set_id)
-        allSets.append(set_id + "\n")
+        allSets.add(set_id + "\n")
 
 with open(os.path.join(script_dir, "all_sets.txt"),"w") as f:
     f.writelines(allSets)
