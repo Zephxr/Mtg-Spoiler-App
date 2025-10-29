@@ -4,6 +4,12 @@ import requests
 from bs4 import BeautifulSoup
 from webhook import webhook
 
+try:
+    import cloudscraper
+    USE_CLOUDSCRAPER = True
+except ImportError:
+    USE_CLOUDSCRAPER = False
+
 async def sendDiscord(card_title, card_link, card_image, set_name):
     if isinstance(webhook, str):
         webhook_urls = [webhook]
@@ -61,7 +67,37 @@ async def process_sets(newSets):
 
         # Scrape the cards from the website
         set_url = f"https://www.magicspoiler.com/mtg-set/{set}/"
-        set_response = requests.get(set_url)
+        
+        # Use cloudscraper if available (handles Cloudflare protection)
+        if USE_CLOUDSCRAPER:
+            scraper = cloudscraper.create_scraper(
+                browser={
+                    'browser': 'firefox',
+                    'platform': 'windows',
+                    'desktop': True
+                }
+            )
+            set_response = scraper.get(set_url)
+        else:
+            # Fallback to requests with browser-like headers
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:144.0) Gecko/20100101 Firefox/144.0',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                'Accept-Language': 'en-US,en;q=0.5',
+                'Accept-Encoding': 'gzip, deflate, br, zstd',
+                'Sec-GPC': '1',
+                'Connection': 'keep-alive',
+                'Upgrade-Insecure-Requests': '1',
+                'Sec-Fetch-Dest': 'document',
+                'Sec-Fetch-Mode': 'navigate',
+                'Sec-Fetch-Site': 'none',
+                'Sec-Fetch-User': '?1',
+                'Priority': 'u=0, i',
+                'TE': 'trailers',
+            }
+            set_response = requests.get(set_url, headers=headers)
+        
+        set_response.raise_for_status()
         set_soup = BeautifulSoup(set_response.content, 'html.parser')
 
         # Look for cards in the "set-card-2" class
